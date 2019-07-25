@@ -294,16 +294,16 @@ function f(y = x) {
 f() // ReferenceError: x is not defined
 ```
 
-下面这样写，也会报错。
+没有传入变量x，输出x(undefined) 
 
 ```javascript
 var x = 1;
 
 function foo(x = x) {
-  // ...
+  console.log(x); 
 }
 
-foo() // ReferenceError: x is not defined
+foo() // undefined
 ```
 
 上面代码中，参数`x = x`形成一个单独作用域。实际执行的是`let x = x`，由于暂时性死区的原因，这行代码会报错”x 未定义“。
